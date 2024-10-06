@@ -1,0 +1,171 @@
+.footer {
+    width: 100%;
+    background-color: black;
+    color: white;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    opacity: 1;
+    padding: 20px 0;
+}
+
+.upperSection {
+    display: flex;
+    width: 90%;
+    justify-content: space-between;
+    padding: 20px 0;
+    flex-wrap: wrap;
+}
+
+.leftPortion {
+    width: 60%;
+}
+
+.rightPortion {
+    width: 35%;
+}
+
+.emailContainer {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.emailInput {
+    padding: 10px;
+    margin-right: 10px;
+    flex: 1;
+}
+
+.subscribeButton {
+    padding: 10px 20px;
+    background-color: #ff6600;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.separator {
+    border: 0.1px solid white;
+    width: 100%;
+}
+
+.lowerSection {
+    display: flex;
+    width: 90%;
+    justify-content: space-evenly;
+    padding: 20px 0;
+    flex-wrap: wrap;
+}
+
+.lowerLeft,
+.lowerCenter,
+.lowerRight {
+    width: 30%;
+    margin-bottom: 20px;
+}
+
+.footer h3 {
+    margin: 10px 0;
+    cursor: pointer;
+}
+
+.footer ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer li {
+    margin: 5px 0;
+}
+
+.socialIcons {
+    margin: 10px 0;
+}
+
+.paymentIcons {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.paymentIcons img {
+    margin-right: 10px;
+}
+
+.copyright {
+    margin: 20px 0;
+    text-align: center;
+    color: white;
+}
+
+.currencySelect {
+    background-color: black;
+    margin-top: 10px;
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+    color: white;
+}
+
+.currencyNote {
+    margin-top: 5px;
+    font-size: 70%;
+}
+
+.downArrow {
+    display: none;
+    margin-left: 5px;
+}
+
+/* Responsive Styles for Tablets */
+@media (max-width: 1024px) {
+    .upperSection {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .leftPortion,
+    .rightPortion {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .lowerSection {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .lowerLeft,
+    .lowerCenter,
+    .lowerRight {
+        width: 100%;
+    }
+}
+
+/* Responsive Styles for Mobile */
+@media (max-width: 768px) {
+    .upperSection {
+        padding: 20px 10px;
+    }
+
+    .lowerSection {
+        padding: 10px 0;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .lowerLeft,
+    .lowerCenter,
+    .lowerRight {
+        width: 100%;
+    }
+
+    .downArrow {
+        display: inline;
+    }
+}

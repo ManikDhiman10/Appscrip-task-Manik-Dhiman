@@ -1,0 +1,164 @@
+.header {
+    text-align: center;
+    margin: 0 24px;
+}
+
+.logoContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    position: relative;
+}
+
+.logo {
+    font-size: 2rem;
+    color: black;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.icons {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+}
+
+.icon {
+    margin: 0 10px;
+    cursor: pointer;
+}
+
+.languageSelect {
+    margin-left: 15px;
+    padding: 5px;
+}
+
+.navbar {
+    margin: 10px 0;
+}
+
+.navList {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.navList li {
+    cursor: pointer;
+    font-weight: bold;
+    color: black;
+}
+
+.navList li:hover {
+    background-color: #f1f1f1;
+}
+
+.separator {
+    border: 0.5px solid rgb(177, 177, 177);
+    margin: 10px 0;
+}
+
+.welcomeText {
+    font-size: 1.5rem;
+    margin-top: 40px;
+    margin-bottom: 15px;
+}
+
+.welcomeDescription {
+    text-align: center;
+    width: 41%;
+    margin: 0 auto;
+    line-height: 1.5;
+    font-size: 1rem;
+    color: black;
+    margin-bottom: 20px;
+}
+
+/* Mobile-specific styles */
+@media only screen and (max-width: 768px) {
+    .logoContainer {
+        justify-content: space-between;
+    }
+
+    .logo {
+        position: relative;
+        font-size: 1.8rem;
+        margin: 0;
+    }
+
+    .icons {
+        margin-right: 10px;
+    }
+
+    .hamburgerMenu {
+        display: block;
+        font-size: 1.5rem;
+        cursor: pointer;
+        position: absolute;
+        left: 0;
+        top: 20px;
+    }
+
+    .icon {
+        display: none;
+    }
+
+    .searchIcon,
+    .heartIcon,
+    .bagIcon {
+        display: inline;
+    }
+
+    .navList {
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        background-color: #f9f9f9;
+        padding: 20px;
+        width: 100%;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .navList.mobileVisible {
+        display: flex;
+    }
+
+    .currentPage {
+        margin-top: 10px;
+        font-weight: bold;
+        color: black;
+        text-align: center;
+    }
+
+    .icon:nth-child(4),
+    .languageSelect {
+        display: none;
+    }
+
+    .mobileOnly {
+        display: block;
+    }
+
+    .welcomeDescription {
+        width: 80%;
+    }
+
+    .logoContainer svg {
+        display: none;
+    }
+}
+
+/* Hide hamburger menu and current page display on larger screens */
+@media only screen and (min-width: 769px) {
+    .hamburgerMenu {
+        display: none;
+    }
+
+    .currentPage {
+        display: none;
+    }
+}

@@ -1,0 +1,223 @@
+.productList {
+    padding: 20px 60px;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.topControls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.toggleFilterBtn {
+    padding: 10px;
+    background-color: white;
+    color: grey;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.toggleFilterBtn:hover {
+    background-color: #f1f1f1;
+}
+
+.totalCount {
+    font-size: 16px;
+    font-weight: bold;
+    color: black;
+}
+
+.sortingDropdown {
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    font-weight: bold;
+}
+
+.sortingDropdown:hover {
+    background-color: #f1f1f1;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 24px;
+    margin-top: 20px;
+    transition: flex-direction 0.3s;
+}
+
+.filterContainer {
+    width: 300px;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: opacity 0.3s, width 0.3s, margin 0.3s;
+    font-weight: bold;
+}
+
+.filterContainer.hidden {
+    opacity: 0;
+    pointer-events: none;
+    width: 0;
+    margin: 0;
+}
+
+.productGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    width: calc(100% - 324px);
+    flex-grow: 1;
+    transition: width 0.3s, grid-template-columns 0.3s;
+}
+
+.productGrid.fillSpace {
+    grid-template-columns: repeat(4, 1fr);
+    width: 100%;
+}
+
+.productItem {
+    background-color: #fff;
+    box-shadow: 0px 1px 13px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: all 120ms;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 10px;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.productItem img {
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.productItem h2 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #000;
+    margin: 5px 0;
+}
+
+.productItem p {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.filterOption {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.filterOption input {
+    margin-right: 10px;
+}
+
+.filterOption label {
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.filterDropdown div {
+    display: flex;
+    justify-content: space-between;
+}
+
+.filterDropdown:hover {
+    background-color: #f1f1f1;
+}
+
+.filterDropdown .sortingDropdown {
+    width: 100%;
+    border: none;
+    background-color: #f1f1f1;
+}
+
+.filterDropdown hr,
+.productList hr,
+.dropdownBreak hr {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-top: 0.5px solid rgb(177, 177, 177);
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .productList {
+        padding: 20px;
+    }
+
+    .productGrid {
+        grid-template-columns: repeat(2, 1fr);
+        width: 100%;
+        height: max-content;
+    }
+
+    .productGrid.fillSpace {
+        grid-template-columns: repeat(2, 1fr);
+        width: 100%;
+    }
+
+    .toggleFilterBtn {
+        padding: 8px;
+        font-size: 16px;
+    }
+
+    .totalCount {
+        display: none;
+    }
+
+    .filterContainer {
+        width: 100%;
+        height: 580px;
+        margin-bottom: 20px;
+    }
+
+    .productItem img {
+        height: 150px;
+    }
+
+    .container {
+        flex-direction: column;
+        gap: 10px;
+        height: auto;
+    }
+
+    .filterContainer {
+        padding: 15px;
+    }
+
+    .filterOption {
+        margin-bottom: 10px;
+        padding: 8px 12px;
+    }
+
+    .filterOption input {
+        width: 16px;
+        height: 16px;
+    }
+
+    .filterOption label {
+        font-size: 14px;
+    }
+}
