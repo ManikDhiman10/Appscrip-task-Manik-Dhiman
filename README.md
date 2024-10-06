@@ -17,7 +17,7 @@ This repository contains the code for an e-commerce web application developed us
 - **Frontend:** React, Next.js, CSS Modules
 - **Backend:** Fetching data from the [Fake Store API](https://fakestoreapi.com)
 - **Version Control:** Git and GitHub for source control
-- **Deployment:** Hosted on Netlify for public access
+- **Deployment:** Hosted on Vercel for public access link:- https://appscrip-task-manik-dhiman.vercel.app/
 
 ## Installation
 
@@ -45,11 +45,8 @@ Users can apply filters and sorting options to find products that meet their pre
 Contributing
 Contributions are welcome! Please create a pull request for any features, improvements, or bug fixes.
 
-License
-This project is open-source and available under the MIT License.
-
 Acknowledgments
-Thanks to Netlify for providing easy hosting solutions.
+Thanks to Vercel for providing easy hosting solutions.
 Thanks to Fake Store API for the mock data.
 Contact
 For any inquiries, please contact me at manikdhiman458@gmail.com.
