@@ -1,11 +1,17 @@
 "use client";
-import React, { useState } from 'react';
-import styles from './Footer.module.css'; // Ensure you have this CSS module
+import React, { useState, useEffect } from 'react';
+import styles from './Footer.module.css'; 
 
 const Footer = () => {
     const [isMettaMuseOpen, setMettaMuseOpen] = useState(false);
     const [isQuickLinksOpen, setQuickLinksOpen] = useState(false);
     const [isFollowUsOpen, setFollowUsOpen] = useState(false);
+    const [isClient, setIsClient] = useState(false); // State to check if we are in the client
+
+    // Use effect to set isClient to true once the component mounts in the browser
+    useEffect(() => {
+        setIsClient(true);
+    }, []);
 
     const toggleMettaMuse = () => setMettaMuseOpen(!isMettaMuseOpen);
     const toggleQuickLinks = () => setQuickLinksOpen(!isQuickLinksOpen);
@@ -41,7 +47,7 @@ const Footer = () => {
                     <h3 onClick={toggleMettaMuse} className={styles.dropdownToggle}>
                         mettã muse <span className={styles.downArrow}>{isMettaMuseOpen ? '▲' : '▼'}</span>
                     </h3>
-                    {(isMettaMuseOpen || window.innerWidth > 768) && (
+                    {isClient && (isMettaMuseOpen || window.innerWidth > 768) && (
                         <ul>
                             <li>About Us</li>
                             <li>Stories</li>
@@ -56,7 +62,7 @@ const Footer = () => {
                     <h3 onClick={toggleQuickLinks} className={styles.dropdownToggle}>
                         QUICK LINKS <span className={styles.downArrow}>{isQuickLinksOpen ? '▲' : '▼'}</span>
                     </h3>
-                    {(isQuickLinksOpen || window.innerWidth > 768) && (
+                    {isClient && (isQuickLinksOpen || window.innerWidth > 768) && (
                         <ul>
                             <li>Orders & Shipping</li>
                             <li>Join/Login as a Seller</li>
@@ -72,7 +78,7 @@ const Footer = () => {
                     <h3 onClick={toggleFollowUs} className={styles.dropdownToggle}>
                         FOLLOW US <span className={styles.downArrow}>{isFollowUsOpen ? '▲' : '▼'}</span>
                     </h3>
-                    {(isFollowUsOpen || window.innerWidth > 768) && (
+                    {isClient && (isFollowUsOpen || window.innerWidth > 768) && (
                         <div>
                             <div className={styles.socialIcons}>
                                 <span><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="70" height="50" viewBox="0 0 48 48">
@@ -80,7 +86,8 @@ const Footer = () => {
 </svg></span> {/* Instagram Icon */}
                                 <span><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="50" height="50" viewBox="0 0 48 48">
 <path fill="#0288D1" d="M42,37c0,2.762-2.238,5-5,5H11c-2.761,0-5-2.238-5-5V11c0-2.762,2.239-5,5-5h26c2.762,0,5,2.238,5,5V37z"></path><path fill="#FFF" d="M12 19H17V36H12zM14.485 17h-.028C12.965 17 12 15.888 12 14.499 12 13.08 12.995 12 14.514 12c1.521 0 2.458 1.08 2.486 2.499C17 15.887 16.035 17 14.485 17zM36 36h-5v-9.099c0-2.198-1.225-3.698-3.192-3.698-1.501 0-2.313 1.012-2.707 1.99C24.957 25.543 25 26.511 25 27v9h-5V19h5v2.616C25.721 20.5 26.85 19 29.738 19c3.578 0 6.261 2.25 6.261 7.274L36 36 36 36z"></path>
-</svg></span> {/* LinkedIn Icon */}
+</svg>
+</span> {/* LinkedIn Icon */}
                             </div>
                             <p>mettã muse ACCEPTS</p>
                             <div className={styles.paymentIcons}>
@@ -92,11 +99,11 @@ const Footer = () => {
 </svg></span>
                                 <span><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="70" height="50" viewBox="0 0 48 48">
 <path fill="#3F51B5" d="M45,35c0,2.209-1.791,4-4,4H7c-2.209,0-4-1.791-4-4V13c0-2.209,1.791-4,4-4h34c2.209,0,4,1.791,4,4V35z"></path><path fill="#FFC107" d="M30 14A10 10 0 1 0 30 34A10 10 0 1 0 30 14Z"></path><path fill="#FF3D00" d="M22.014,30c-0.464-0.617-0.863-1.284-1.176-2h5.325c0.278-0.636,0.496-1.304,0.637-2h-6.598C20.07,25.354,20,24.686,20,24h7c0-0.686-0.07-1.354-0.201-2h-6.598c0.142-0.696,0.359-1.364,0.637-2h5.325c-0.313-0.716-0.711-1.383-1.176-2h-2.973c0.437-0.58,0.93-1.122,1.481-1.595C21.747,14.909,19.481,14,17,14c-5.523,0-10,4.477-10,10s4.477,10,10,10c3.269,0,6.162-1.575,7.986-4H22.014z"></path>
-</svg></span>
-                                <span><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="70" height="50" viewBox="0 0 48 48">
-<path fill="#0d62ab" d="M18.7,13.767l0.005,0.002C18.809,13.326,19.187,13,19.66,13h13.472c0.017,0,0.034-0.007,0.051-0.006    C32.896,8.215,28.887,6,25.35,6H11.878c-0.474,0-0.852,0.335-0.955,0.777l-0.005-0.002L5.029,33.813l0.013,0.001    c-0.014,0.064-0.039,0.125-0.039,0.194c0,0.553,0.447,0.991,1,0.991h8.071L18.7,13.767z"></path><path fill="#199be2" d="M33.183,12.994c0.053,0.876-0.005,1.829-0.229,2.882c-1.281,5.995-5.912,9.115-11.635,9.115   c0,0-3.47,0-4.313,0c-0.521,0-0.767,0.306-0.88,0.54l-1.74,8.049l-0.305,1.429h-0.006l-1.263,5.796l0.013,0.001 c-0.014,0.064-0.039,0.125-0.039,0.194c0,0.553,0.447,1,1,1h7.333l0.013-0.01c0.472-0.007,0.847-0.344,0.945-0.788l0.018-0.015  l1.812-8.416c0,0,0.126-0.803,0.97-0.803s4.178,0,4.178,0c5.723,0,10.401-3.106,11.683-9.102   C42.18,16.106,37.358,13.019,33.183,12.994z"></path><path fill="#006fc4" d="M19.66,13c-0.474,0-0.852,0.326-0.955,0.769L18.7,13.767l-2.575,11.765 c0.113-0.234,0.359-0.54,0.88-0.54c0.844,0,4.235,0,4.235,0c5.723,0,10.432-3.12,11.713-9.115c0.225-1.053,0.282-2.006,0.229-2.882  C33.166,12.993,33.148,13,33.132,13H19.66z"></path>
 </svg>
 </span>
+                                <span><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="70" height="50" viewBox="0 0 48 48">
+<path fill="#0d62ab" d="M18.7,13.767l0.005,0.002C18.809,13.326,19.187,13,19.66,13h13.472c0.017,0,0.034-0.007,0.051-0.006    C32.896,8.215,28.887,6,25.35,6H11.878c-0.474,0-0.852,0.335-0.955,0.777l-0.005-0.002L5.029,33.813l0.013,0.001    c-0.014,0.064-0.039,0.125-0.039,0.194c0,0.553,0.447,0.991,1,0.991h8.071L18.7,13.767z"></path><path fill="#199be2" d="M33.183,12.994c0.053,0.876-0.005,1.829-0.229,2.882c-1.281,5.995-5.912,9.115-11.635,9.115   c0,0-3.47,0-4.313,0c-0.521,0-0.767,0.306-0.88,0.54l-1.74,8.049l-0.305,1.429h-0.006l-1.263,5.796l0.013,0.001 c-0.014,0.064-0.039,0.125-0.039,0.194c0,0.553,0.447,1,1,1h7.333l0.013-0.01c0.472-0.007,0.847-0.344,0.945-0.788l0.018-0.015  l1.812-8.416c0,0,0.126-0.803,0.97-0.803s4.178,0,4.178,0c5.723,0,10.401-3.106,11.683-9.102   C42.18,16.106,37.358,13.019,33.183,12.994z"></path><path fill="#006fc4" d="M19.66,13c-0.474,0-0.852,0.326-0.955,0.769L18.7,13.767l-2.575,11.765 c0.113-0.234,0.359-0.54,0.88-0.54c0.844,0,4.235,0,4.235,0c5.723,0,10.432-3.12,11.713-9.115c0.225-1.053,0.282-2.006,0.229-2.882  C33.166,12.993,33.148,13,33.132,13H19.66z"></path>
+</svg></span>
                                 <span><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="70" height="50" viewBox="0 0 48 48">
 <linearGradient id="tqttHKKYN8QCm0QroIldIa_hCQjDhlJZbKP_gr1" x1="6.367" x2="6.367" y1="11.574" y2="32.038" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#6d6d6d"></stop><stop offset=".438" stop-color="#626262"></stop><stop offset=".987" stop-color="#464646"></stop><stop offset=".998" stop-color="#454545"></stop></linearGradient><path fill="url(#tqttHKKYN8QCm0QroIldIa_hCQjDhlJZbKP_gr1)" d="M8.653,17.61c-0.559,0.684-1.453,1.224-2.348,1.146c-0.111-0.924,0.327-1.908,0.84-2.514 C7.703,15.539,8.681,15.038,9.473,15C9.566,15.963,9.203,16.907,8.653,17.61 M12.339,25.731c-0.693-0.52-1.137-1.114-1.137-1.9  c0-0.786,0.384-1.319,0.795-1.719c0.384-0.374,0.527-0.92,0.228-1.361C11.287,19.368,9.861,19,9.166,19 c-0.773,0-1.365,0.238-1.84,0.431c-0.323,0.13-0.578,0.172-0.81,0.172c-0.282,0-0.657-0.082-1.02-0.22  c-0.478-0.184-0.973-0.373-1.52-0.373c-1.413,0-2.52,0.688-3.284,2.035c-1.519,2.604-0.272,6.192,0.866,7.838   c0.503,0.732,1.438,2.097,2.987,2.097c0.001,0,0.001,0,0.002,0c0.56-0.021,0.95-0.18,1.265-0.308   c0.279-0.114,0.465-0.189,0.804-0.189c0.325,0,0.513,0.075,0.797,0.188c0.347,0.138,0.778,0.31,1.409,0.31  c1.417,0,2.187-1.127,2.827-2.064c0.615-0.893,0.927-1.775,1.028-2.105C12.802,26.449,12.779,26.103,12.339,25.731z"></path><linearGradient id="tqttHKKYN8QCm0QroIldIb_hCQjDhlJZbKP_gr2" x1="32.625" x2="32.625" y1="13.141" y2="36.192" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#6d6d6d"></stop><stop offset=".438" stop-color="#626262"></stop><stop offset=".987" stop-color="#464646"></stop><stop offset=".998" stop-color="#454545"></stop></linearGradient><path fill="url(#tqttHKKYN8QCm0QroIldIb_hCQjDhlJZbKP_gr2)" d="M22.688,17H17.25v13.999h2.265v-4.666h3.099c2.844,0,4.887-1.937,4.887-4.666  S25.495,17,22.688,17z M22.137,24.466h-2.622v-5.6h2.622c1.952,0,3.099,1.031,3.099,2.8S24.098,24.466,22.137,24.466z M32.752,20.5  c-2.39,0-4.156,1.324-4.222,3.144h2.027c0.167-0.865,0.995-1.432,2.13-1.432c1.376,0,2.154,0.621,2.154,1.766l0.001,0.79    l-2.814,0.147C29.414,25.068,28,26.105,28,27.907c0,1.82,1.46,3.028,3.552,3.028c1.413,0,2.725-0.693,3.319-1.793h0.046v1.685H37    v-6.992C37.001,21.806,35.327,20.5,32.752,20.5z M34.834,27.014c0,1.316-1.153,2.253-2.678,2.253c-1.199,0-1.962-0.559-1.962-1.414  c0-0.883,0.734-1.396,2.139-1.478l2.508-0.184L34.834,27.014z M45.691,20.5l-2.675,8.588H42.97L40.294,20.5H37.92l3.848,10.584  l-0.206,0.644c-0.348,1.091-0.91,1.511-1.914,1.511c-0.172,0-0.497-0.017-0.647-0.036v1.745C39.152,34.982,39.68,35,39.844,35   c2.215,0,3.256-0.839,4.167-3.385L48,20.5H45.691z"></path>
 </svg></span>
